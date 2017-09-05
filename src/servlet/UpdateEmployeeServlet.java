@@ -1,0 +1,61 @@
+package servlet;
+
+import java.io.IOException;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import com.cqjtu.dao.EmployeeDao;
+import com.cqjtu.vo.Employee;
+
+/**
+ * Servlet implementation class UpdateEmployeeServlet
+ */
+@WebServlet("/UpdateEmployeeServlet")
+public class UpdateEmployeeServlet extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+
+	/**
+	 * @see HttpServlet#HttpServlet()
+	 */
+	public UpdateEmployeeServlet() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
+	 *      response)
+	 */
+	protected void doGet(HttpServletRequest request,
+			HttpServletResponse response) throws ServletException, IOException {
+
+	}
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
+	 *      response)
+	 */
+	protected void doPost(HttpServletRequest request,
+			HttpServletResponse response) throws ServletException, IOException {
+		request.setCharacterEncoding("utf-8");
+
+		Employee employee = new Employee();
+		
+		employee.setEmployeeID(Integer.parseInt(request.getParameter("id")));
+		employee.setEmployeeName(request.getParameter("employeeName"));
+		employee.setPhone(request.getParameter("employeeTel"));
+		employee.setEmail(request.getParameter("employeeEmail"));
+		employee.setStatus(request.getParameter("employeeStatus"));
+		employee.setDepartment(Integer.parseInt(request.getParameter("Department")));
+
+		EmployeeDao emd = new EmployeeDao();
+		
+		emd.modifyEmployee(employee);
+		request.getRequestDispatcher("EmployeeServlet?pageIndex=1").forward(request, response);
+
+	}
+}

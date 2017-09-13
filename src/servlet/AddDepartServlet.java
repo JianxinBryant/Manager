@@ -12,7 +12,7 @@ import com.cqjtu.dao.DepartementDao;
 import com.cqjtu.vo.Department;
 
 /**
- * Servlet implementation class AddDepartServlet
+ * Servlet implementation class AddDepartServlet ÕÅ½¢ÐÄ
  */
 @WebServlet("/AddDepartServlet")
 public class AddDepartServlet extends HttpServlet {

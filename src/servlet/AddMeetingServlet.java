@@ -12,7 +12,7 @@ import com.cqjtu.dao.MeetingDao;
 import com.cqjtu.vo.Meeting;
 
 /**
- * Servlet implementation class AddMeetingServlet
+ * Servlet implementation class AddMeetingServlet ÕÅ½¢ÐÄ
  */
 @WebServlet("/AddMeetingServlet")
 public class AddMeetingServlet extends HttpServlet {
